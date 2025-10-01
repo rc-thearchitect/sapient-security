@@ -1,5 +1,7 @@
 # 🔐 Sapient Security Insights
 
+<img width="500" height="500" alt="logo" src="https://github.com/user-attachments/assets/a6d4d902-4f49-4f55-9847-404fd5df7f2d" />
+
 ## 📖 Introduction
 
 **Sapient Security Insight Platform (Sapient)** is an **AI-powered Kubernetes & Cloud Security Auditor**.  
@@ -56,7 +58,10 @@ That’s it. **No manifests, no scan results, no ongoing telemetry is collected.
 ### 🔒 Privacy Promise
 - 🏠 **Local-first**: All scanning (Kubescape, Trivy) and AI analysis is done inside your environment.  
 - 🚫 **No telemetry**: No ongoing metrics, analytics data is collected
-- 🔑 **Only one outbound call**: To validate license authenticity at the time of activation.  
+- 🔑 **Only one outbound call**: To validate license authenticity at the time of activation.
+
+<img width="1744" height="1658" alt="image" src="https://github.com/user-attachments/assets/0790d37f-1f6a-47df-a11b-d9e9785765c6" />
+
 
 ## ⚡ Installation
 
