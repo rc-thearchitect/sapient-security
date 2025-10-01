@@ -1,0 +1,28 @@
+NOTICE
+======
+
+This repository ("Software") contains multiple software projects and/or platforms. Each top-level folder represents a distinct software, tool, or platform, and all folders, subfolders, and contents are covered by the same licensing terms.
+
+By accessing, viewing, downloading, copying, or otherwise using this repository, you agree to the following binding terms:
+
+1. NO COMMERCIAL USE
+   You may not use, reproduce, modify, fork, distribute, or exploit the Software or its concepts for any commercial purpose without prior written permission from the copyright holder.
+
+2. NO USE OF CONCEPTS IN COMMERCIAL WORK
+   You may not incorporate the algorithms, workflows, patterns, or other functional elements of the Software into any commercial product or service, including “clean room” re-implementations.
+
+3. NO REDISTRIBUTION
+   You may not redistribute, sublicense, or host this Software (modified or unmodified) without written consent.
+
+4. ATTRIBUTION REQUIRED
+   All permitted uses and outputs must attribute this repository and its original creator:
+       - Credit: Rohit Chaurasia
+       - State if modifications were made
+
+5. LICENSE & ENFORCEMENT
+   This Software is licensed under the Custom Non-Commercial Intellectual Property License (NCIPL).
+   - Primary Jurisdiction: Governed by Swiss law; disputes in Zurich, Switzerland.
+   - Additional Jurisdiction: The Licensor retains the absolute and unconditional right to initiate proceedings in Mumbai, India, under Indian law, and the Licensee irrevocably submits to the jurisdiction of such courts.
+   Violations may result in civil and/or criminal legal action.
+
+By continuing to access this repository, you acknowledge and agree to these terms.

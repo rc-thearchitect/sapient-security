@@ -1,0 +1,57 @@
+Non-Commercial Intellectual Property License (NCIPL)
+============================================================
+
+All rights reserved.
+
+1. Grant of Limited Rights
+--------------------------
+Subject to the terms and conditions of this Agreement, you are granted a limited, non-exclusive, non-transferable, revocable license to:
+- Access, view, and use the Software solely for personal, educational, or non-commercial research purposes.
+- Create derivative works for personal, educational, or non-commercial research purposes only.
+
+2. Scope of Application
+-----------------------
+This Agreement applies to all folders, subfolders, files, and other contents within this repository, including each top-level directory representing a distinct software, tool, or platform.
+Unless expressly stated otherwise in writing by the copyright holder, all materials in this repository are covered by this license.
+
+3. Definitions
+--------------
+"Software" means all source code, object code, scripts, algorithms, workflows, architecture designs, data structures, documentation, and other materials provided in this repository, whether in original or modified form.
+"Concepts" means any underlying ideas, methods, principles, patterns, algorithms, data flows, or functional elements embodied in or derived from the Software.
+
+4. Prohibited Uses
+------------------
+You MAY NOT, without prior written consent from the copyright holder:
+- Use the Software or its Concepts, in whole or in part, for any commercial purpose.
+- Incorporate the Software or its Concepts into any product, service, or system offered commercially.
+- Create, publish, or distribute derivative works for commercial purposes.
+- Train machine learning models or other AI systems using the Software or its Concepts for commercial purposes.
+- Use the Software or its Concepts as the basis for "clean room" re-implementation or substantially similar commercial functionality.
+- Redistribute the Software in any form, whether modified or unmodified.
+
+5. Attribution Requirement
+--------------------------
+Any permitted use of the Software or its outputs must include:
+- Clear and prominent attribution to "[Repository Name]" and "[Your Full Name or Entity]".
+- A link to the original repository.
+- An explicit statement indicating whether modifications were made.
+
+6. Intellectual Property Rights
+-------------------------------
+All rights, title, and interest in and to the Software and its Concepts remain the exclusive property of the copyright holder. This Agreement does not transfer any ownership rights.
+
+7. Termination
+--------------
+This license is automatically terminated without notice if you breach any term. Upon termination, you must cease all use of the Software and destroy all copies in your possession.
+
+8. No Warranty
+--------------
+The Software is provided "AS IS", without warranty of any kind, express or implied, including but not limited to warranties of merchantability or fitness for a particular purpose.
+
+9. Governing Law & Jurisdiction
+-------------------------------
+This Agreement shall be governed by and construed in accordance with the laws of Switzerland, without regard to conflict of laws principles. All disputes, claims, or causes of action arising out of or relating to this Agreement shall be subject to the exclusive jurisdiction of the competent courts located in Zurich, Switzerland.
+
+In addition, and without prejudice to the foregoing, the Licensor retains the absolute and unconditional right to initiate legal proceedings in the competent courts of Mumbai, India, under the laws of India, for the enforcement of its rights under this Agreement. The Licensee irrevocably submits to the jurisdiction of such courts and agrees not to contest the choice of forum or applicable law in either jurisdiction.
+
+By accessing, copying, forking or using the Software in any way, you agree to be bound by the terms of this Agreement.
