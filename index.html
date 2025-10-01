@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sapient Security Auditor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+</head>
+<body>
+    <div id="app-wrapper">
+        <main id="main-content" class="container hidden">
+            <header>
+                <div class="header-content">
+                    <img src="/static/logo.svg" alt="Sapient Logo" class="logo">
+                    <div class="header-text">
+                        <p>Generate tailored security insights from your Kubernetes manifests.</p>
+                    </div>
+                </div>
+                <button id="how-to-use-btn" class="btn btn-secondary">How to Use</button>
+            </header>
+
+            <div class="main-layout">
+                <div id="controls-column">
+                    <div class="control-tabs">
+                        <button class="control-tab-link active" data-tab="scan-tab">Scan</button>
+                        <button class="control-tab-link" data-tab="config-tab">Configuration</button>
+                    </div>
+
+                    <!-- Scan Tab -->
+                    <div id="scan-tab" class="control-tab-content active">
+                        <div class="card">
+                            <h2 class="step-title">1. Optimize Report For</h2>
+                            <div id="persona-selector" class="persona-selector-grid">
+                                <button data-persona="risk_analyst" class="btn persona-btn active">Risk Analyst</button>
+                                <button data-persona="security_team" class="btn persona-btn">Control Tester</button>
+                                <button data-persona="dev_team" class="btn persona-btn">Engineer</button>
+                                <button data-persona="leadership" class="btn persona-btn">Leadership</button>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h2 class="step-title">2. Upload Manifests</h2>
+                             <form id="upload-form">
+                                <div id="upload-area" class="upload-area">
+                                    <p>Drag & drop YAML files here</p>
+                                    <input type="file" id="file-input" name="files" multiple hidden accept=".yml, .yaml, application/x-yaml">
+                                    <button type="button" id="browse-btn" class="btn btn-outline">Select Files</button>
+                                    <p id="file-name-display"></p>
+                                </div>
+                                <button type="submit" id="scan-btn" class="btn btn-primary" disabled>
+                                    Generate Report
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <!-- Config Tab -->
+                    <div id="config-tab" class="control-tab-content">
+                        <div class="card">
+                            <h2 class="step-title">OpenAI Configuration</h2>
+                            <p id="api-key-status">Your API key is configured.</p>
+                             <form id="api-key-form">
+                                <input type="password" id="api-key-input" name="api_key" placeholder="sk-...">
+                                <button type="submit" class="btn btn-outline">Save Key</button>
+                            </form>
+                        </div>
+                         <div class="card">
+                            <h2 class="step-title">License Details</h2>
+                            <div id="license-details" class="license-info">
+                                <p><strong>Email:</strong> <span id="license-email"></span></p>
+                                <p><strong>Tier:</strong> <span id="license-tier"></span></p>
+                                <p><strong>Expires:</strong> <span id="license-expiry"></span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="results-column">
+                    <div id="results-placeholder">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentColor" class="bi bi-file-earmark-text" viewBox="0 0 16 16">
+                          <path d="M5.5 7a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0 -1h-5zM5 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z"/>
+                          <path d="M9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.5L9.5 0zm0 1v2A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5z"/>
+                        </svg>
+                        <h3>Your report will appear here</h3>
+                        <p>Once you upload your files and start the scan, the generated report will be displayed in this area.</p>
+                    </div>
+                    <div id="results" class="hidden">
+                         <div id="loading" class="hidden loading-state">
+                            <div class="spinner"></div>
+                            <p>Scanning files and generating report...</p>
+                        </div>
+                        <div id="report-content" class="hidden">
+                            <div class="card">
+                                 <div class="report-header">
+                                    <h2>Audit Report</h2>
+                                    <div class="report-actions">
+                                        <button id="copy-btn" class="btn btn-secondary">Copy Report</button>
+                                        <button id="download-pdf-btn" class="btn btn-secondary">Download as PDF</button>
+                                    </div>
+                                </div>
+                                <div class="tabs">
+                                    <button class="tab-link active" data-tab="summary-report">AI Generated Report</button>
+                                    <button class="tab-link" data-tab="raw-kubescape">Raw Kubescape</button>
+                                    <button class="tab-link" data-tab="raw-trivy">Raw Trivy</button>
+                                </div>
+                                <div id="summary-report" class="tab-content active report-markdown"></div>
+                                <div id="raw-kubescape" class="tab-content"><pre><code class="language-json"></code></pre></div>
+                                <div id="raw-trivy" class="tab-content"><pre><code class="language-json"></code></pre></div>
+                            </div>
+                        </div>
+                         <div id="error-display" class="hidden error-box"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <p>"The cake is a lie." – Portal</p>
+            <p>&copy; 2025 Sapient Security Auditor | Built by <a href="https://www.rohitchaurasia.com/" target="_blank">Rohit Chaurasia</a></p>
+        </footer>
+    </div>
+
+    <!-- License Modal -->
+    <div id="license-modal" class="fullscreen-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <img src="/static/logo.png" alt="Sapient Logo" class="logo">
+                <h2>Activate Sapient Auditor</h2>
+                <p>Please upload your license file to begin.</p>
+            </div>
+            <form id="license-form">
+                <input type="file" id="license-input" name="license" hidden accept=".json">
+                <button type="button" id="browse-license-btn" class="btn btn-outline">Select License File</button>
+                <p id="license-file-name"></p>
+                <button type="submit" id="activate-btn" class="btn btn-primary" disabled>Activate</button>
+            </form>
+            <div id="license-error" class="error-box hidden"></div>
+        </div>
+    </div>
+
+    <!-- How to Use Lightbox -->
+    <div id="how-to-use-lightbox" class="lightbox-overlay hidden">
+        <div class="lightbox-content">
+            <button id="close-lightbox-btn" class="close-btn">&times;</button>
+            <h2>How to Use Sapient Auditor</h2>
+            <ol>
+                <li>
+                    <strong>Configure your API Key</strong>
+                    <p>Navigate to the 'Configuration' tab and enter your OpenAI API key. The application requires this to generate reports.</p>
+                </li>
+                <li>
+                    <strong>Optimize the Report</strong>
+                    <p>In the 'Scan' tab, select a persona (e.g., Risk Analyst, Engineer). This choice tailors the final report's language and focus to that specific audience.</p>
+                </li>
+                <li>
+                    <strong>Upload Manifests</strong>
+                    <p>Drag and drop your Kubernetes YAML files into the upload area, or use the 'Select Files' button. You can upload multiple files at once.</p>
+                </li>
+                 <li>
+                    <strong>Generate & View</strong>
+                    <p>Click 'Generate Report' and wait for the analysis to complete. You can view the AI-generated summary or look at the raw scanner data in the respective tabs.</p>
+                </li>
+            </ol>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
+
