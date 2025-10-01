@@ -1,0 +1,263 @@
+/* --- Sapient Branding & Core Styles --- */
+:root {
+    --sapient-blue: #0A2540;
+    --sapient-teal: #00D4FF;
+    --sapient-action-bg: #00D4FF;
+    --sapient-action-text: #0A2540;
+    --background-color: #F8F9FA;
+    --primary-text-color: #212529;
+    --secondary-text-color: #6C757D;
+    --border-color: #DEE2E6;
+    --card-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    --font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+    color: var(--primary-text-color);
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.hidden { display: none !important; }
+
+/* --- Main Layout --- */
+#app-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+.container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 2.5rem;
+    box-sizing: border-box;
+    flex: 1;
+}
+
+header {
+    display: flex;
+    justify-content: column;
+    align-items: center;
+    margin-bottom: 2.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+.header-content { display: flex; flex-direction:column; align-items: center; gap: 0.75rem; }
+
+.header-top{
+position: absolute;
+top: 1rem;
+right: 1 rem
+}
+.header-text p {
+    color: var(--secondary-text-color);
+    font-size: 1.125rem;
+    margin: 0;
+    font-weight: 500;
+}
+header .logo { 
+    height: 450px; 
+    width: auto; 
+}
+
+.main-layout {
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    gap: 2.5rem;
+    align-items: flex-start;
+}
+
+#controls-column, #results-column { display: flex; flex-direction: column; gap: 1.5rem; }
+.card {
+    background-color: #FFFFFF;
+    border-radius: 0.75rem;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--card-shadow);
+    padding: 1.75rem;
+}
+.step-title { font-size: 1.125rem; font-weight: 600; margin: 0 0 1.5rem; color: var(--primary-text-color); }
+
+
+/* --- Button System --- */
+.btn { display: inline-block; font-weight: 600; text-align: center; white-space: nowrap; user-select: none; border: 2px solid transparent; padding: 0.65rem 1.25rem; font-size: 0.9rem; line-height: 1.5; border-radius: 9999px; transition: all 0.15s ease-in-out; cursor: pointer; }
+.btn:disabled { background-color: #E9ECEF !important; color: var(--secondary-text-color) !important; cursor: not-allowed; transform: none !important; box-shadow: none !important; }
+.btn:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+
+.btn-primary { color: var(--sapient-action-text); background-color: var(--sapient-action-bg); width: 100%; margin-top: 1.5rem; }
+.btn-outline { color: var(--sapient-blue); background-color: transparent; border-color: var(--sapient-blue); }
+.btn-outline:hover:not(:disabled) { color: white; background-color: var(--sapient-blue); }
+.btn-secondary { color: var(--sapient-blue); background-color: #E0F7FF; border-radius: 0.5rem; font-size: 0.875rem; padding: 0.5rem 1rem; }
+.btn-secondary:hover:not(:disabled) { background-color: #cceeff; }
+
+/* --- Modals & Lightbox --- */
+.fullscreen-modal, .lightbox-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(248, 249, 250, 0.8); backdrop-filter: blur(5px); display: flex; justify-content: center; align-items: center; z-index: 1000; }
+.modal-content, .lightbox-content { background: white; padding: 2.5rem; border-radius: 0.75rem; width: 100%; max-width: 450px; text-align: center; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.1);}
+.modal-header .logo { 
+    height: 80px;
+    width: auto;
+    margin-bottom: 1.5rem; 
+}
+.modal-header h2 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+.modal-header p { margin-bottom: 2rem; color: var(--secondary-text-color); }
+
+.lightbox-content { max-width: 600px; text-align: left; }
+.lightbox-content h2 { margin-top: 0; }
+.lightbox-content ol { padding-left: 1.5rem; }
+.lightbox-content li { margin-bottom: 1rem; }
+.lightbox-content p { margin-top: 0.25rem; color: var(--secondary-text-color); }
+.close-btn { position: absolute; top: 1rem; right: 1.5rem; background: none; border: none; font-size: 2rem; cursor: pointer; color: var(--secondary-text-color); }
+
+/* --- Tabs --- */
+.control-tabs { display: flex; border-bottom: 1px solid var(--border-color); margin-bottom: 1.5rem; }
+.control-tab-link { background: none; border: none; padding: 0.75rem 0; margin-right: 1.5rem; cursor: pointer; font-size: 1rem; color: var(--secondary-text-color); border-bottom: 3px solid transparent; font-weight: 500;}
+.control-tab-link.active { color: var(--sapient-blue); border-bottom-color: var(--sapient-blue); font-weight: 600; }
+.control-tab-content { display: none; flex-direction: column; gap: 1.5rem; }
+.control-tab-content.active { display: flex; }
+
+#results .tabs { border-bottom: 1px solid var(--border-color); margin-bottom: 1.5rem; display: flex; }
+#results .tab-link { background: none; border: none; padding: 10px 15px; cursor: pointer; font-size: 1rem; color: var(--secondary-text-color); border-bottom: 3px solid transparent; }
+#results .tab-link.active { color: var(--sapient-blue); border-bottom-color: var(--sapient-blue); font-weight: 600; }
+#results .tab-content { display: none; }
+#results .tab-content.active { display: block; }
+
+/* --- Form Elements --- */
+.upload-area { border: 2px dashed var(--border-color); border-radius: 0.75rem; padding: 2rem; text-align: center; transition: all 0.2s ease-in-out; }
+.upload-area p { color: var(--secondary-text-color); margin-bottom: 1rem; }
+.upload-area.drag-over { background-color: #E0F7FF; border-color: var(--sapient-blue); }
+#file-name-display, #license-file-name { margin-top: 1rem; font-size: 0.875rem; color: var(--secondary-text-color); min-height: 1.25rem; }
+input[type="password"] { width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: 0.5rem; font-size: 1rem; margin-bottom: 1rem; box-sizing: border-box;}
+
+/* --- Results Placeholder --- */
+#results-placeholder {
+    border: 2px dashed var(--border-color);
+    border-radius: 0.75rem;
+    padding: 4rem 2rem;
+    text-align: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--secondary-text-color);
+    box-sizing: border-box;
+}
+#results-placeholder svg {
+    margin-bottom: 1.5rem;
+    color: #ced4da;
+}
+#results-placeholder h3 {
+    font-size: 1.25rem;
+    color: var(--primary-text-color);
+    margin: 0 0 0.5rem;
+}
+#results-placeholder p {
+    max-width: 300px;
+    margin: 0;
+}
+
+
+/* --- Other UI Elements --- */
+.persona-selector-grid { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+.persona-btn { color: var(--primary-text-color); background-color: #f0f0f0; padding: 0.5rem 1rem; font-size: 0.875rem; border-radius: 0.5rem; }
+.persona-btn:hover:not(.active) { background-color: #e9ecef; transform: none; box-shadow: none; }
+.persona-btn.active { color: white; background-color: var(--sapient-blue); border-color: var(--sapient-blue); }
+
+.loading-state { padding: 3rem 0; text-align: center; }
+.spinner { height: 2.5rem; width: 2.5rem; animation: spin 1s linear infinite; border-radius: 50%; border: 4px solid #f0f0f0; border-top: 4px solid var(--sapient-blue); margin: 0 auto 1rem; }
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+.error-box { background-color: #fff5f5; border: 1px solid #f5c2c7; color: #842029; padding: 1rem; border-radius: 0.5rem; margin-top: 1rem; }
+.report-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
+.report-header h2 { font-size: 1.5rem; font-weight: 700; color: var(--sapient-blue); margin:0; }
+.report-actions { display: flex; gap: 0.5rem; }
+
+.license-info p { margin: 0.5rem 0; text-align: left; }
+.license-info strong { color: var(--primary-text-color); }
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 2rem;
+    margin-top: auto;
+    border-top: 1px solid var(--border-color);
+    color: var(--secondary-text-color);
+    font-size: 0.875rem;
+}
+footer p {
+    margin: 0.25rem 0;
+}
+footer a {
+    color: var(--sapient-blue);
+    font-weight: 500;
+    text-decoration: none;
+}
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* --- Markdown Report Formatting --- */
+.report-markdown .cover-page {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border-color);
+}
+.report-markdown .cover-page-logo {
+    max-height: 350px;
+    height: auto;
+    width: auto;
+    margin-bottom: 2rem;
+}
+.report-markdown .cover-page h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    border-bottom: none;
+}
+.report-markdown .cover-page p {
+    font-size: 1rem;
+    color: var(--secondary-text-color);
+    margin: 0.5rem 0;
+}
+
+.report-markdown h1, .report-markdown h2, .report-markdown h3 { color: var(--sapient-blue); border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; margin-top: 1.5rem; }
+.report-markdown table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.9rem;}
+.report-markdown th, .report-markdown td { border: 1px solid var(--border-color); padding: 0.75rem; text-align: left; }
+.report-markdown th { background-color: #f8f9fa; font-weight: 600; }
+.report-markdown code { background-color: #e9ecef; color: #D63384; padding: 0.2em 0.4em; border-radius: 3px; font-size: 90%; font-family: 'SFMono-Regular', Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;}
+.report-markdown pre { background-color: #212529; color: #f8f9fa; padding: 1rem; border-radius: 0.5rem; overflow-x: auto;}
+.report-markdown pre code { background: none; padding: 0; color: inherit; }
+
+.report-markdown .report-footer {
+    text-align: center;
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-color);
+    font-size: 0.875rem;
+    color: var(--secondary-text-color);
+}
+.report-markdown .report-footer p {
+    margin: 0;
+}
+.report-markdown .report-footer a {
+    color: var(--sapient-blue);
+    font-weight: 500;
+    text-decoration: none;
+}
+.report-markdown .report-footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .main-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
