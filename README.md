@@ -69,6 +69,8 @@ Sapient can run either via **Docker (preferred)** or **local Python environment*
 ```bash
 docker pull rohitchaurasia/sapient-security:latest
 
+```bash
+
 ▶️ Run it (Linux/Mac):
 
 ```bash
