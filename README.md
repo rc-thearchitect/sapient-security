@@ -176,7 +176,7 @@ Instead, it translates technical findings into **reports tailored to specific pe
 - Strategic recommendations (investments, policies, automation)  
 - Compliance alignment in one glance  
 
-🚀 **Value**: Executives get **clarity, not noise** — no YAML or CVEs, just **business impact**.  
+🚀 **Value**: Executives get **clarity, not noise**  no YAML or CVEs, just **business impact**.  
 
 ---
 
