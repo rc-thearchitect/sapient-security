@@ -1,6 +1,8 @@
 # 🔐 Sapient Security Insights
 
+<p align="center">
 <img width="500" height="500" alt="logo" src="https://github.com/user-attachments/assets/a6d4d902-4f49-4f55-9847-404fd5df7f2d" />
+</p>
 
 ## 📖 Introduction
 
@@ -109,22 +111,27 @@ You have two options:
 ### Environment Variable at Run-Time
 ```bash
 git clone https://github.com/rohitchaurasia/sapient-security.git
-
+```
+```bash
 cd sapient-security
-
+```
+```bash
 pip install -r requirements.txt
-
+```
+```bash
 cp .env.example .env
-
+```
+```bash
 nano .env (add keys)
-
+```
+```bash
 python3 sapient.py
 ```
 Followed by:
--Open http://localhost:5000
--Follow instructions on screen to attach your license file
--Navigate to the ⚙️ Configuration tab
--Paste your API key and save → it updates the .env inside the container
+- Open http://localhost:5000
+- Follow instructions on screen to attach your license file
+- Navigate to the ⚙️ Configuration tab
+- Paste your API key and save → it updates the .env inside the container
 
 
 ## 🎭 Personas (The Sapient Difference)
