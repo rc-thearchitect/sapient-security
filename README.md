@@ -75,11 +75,13 @@ docker pull rohitchaurasia/sapient-security:latest
 
 ```bash
 docker run -it -p 5000:5000 rohitchaurasia/sapient-security:latest
+```
 
 💻 On Windows (PowerShell/CMD)
 
 ```bash
 docker run -it -p 5000:5000 rohitchaurasia/sapient-security:latest
+```
 
 Now open 👉 http://localhost:5000
 
@@ -90,7 +92,7 @@ You have two options:
 
 ### From the Web UI (Recommended)
 
--Start the container without any API key
+-Start the container
 -Open http://localhost:5000
 -Follow instructions on screen to attach your license file
 -Navigate to the ⚙️ Configuration tab
@@ -102,12 +104,17 @@ You have two options:
 ### Environment Variable at Run-Time
 ```bash
 git clone https://github.com/rohitchaurasia/sapient-security.git
-cd sapient-security
-pip install -r requirements.txt
-cp .env.example .env
-nano .env (add keys)
-python3 sapient.py
 
+cd sapient-security
+
+pip install -r requirements.txt
+
+cp .env.example .env
+
+nano .env (add keys)
+
+python3 sapient.py
+```
 Followed by:
 -Open http://localhost:5000
 -Follow instructions on screen to attach your license file
