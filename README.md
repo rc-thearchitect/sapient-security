@@ -122,72 +122,85 @@ Followed by:
 -Paste your API key and save → it updates the .env inside the container
 
 
-🎭 Personas (The Sapient Difference)
+## 🎭 Personas (The Sapient Difference)
 
-Sapient’s killer diffrentiator is that it doesn’t just dump scanner output.
-Instead, it translates technical findings into reports tailored to specific personas in your organization.
+Sapient’s **killer differentiator** is that it doesn’t just dump scanner output.  
+Instead, it translates technical findings into **reports tailored to specific personas** in your organization.
 
-👨‍💻 Developer (Engineering Teams)
-✅ Focus: Actionable remediation
+---
 
-📌 Example Output:
-“Privileged container detected → remove securityContext.privileged: true”
-Code snippets & config samples to fix issues
-Quick validation steps (e.g., kubectl describe pod)
+### 👨‍💻 Developer (Engineering Teams)  
+✅ **Focus**: Actionable remediation  
 
-🚀 Value: Developers don’t waste time parsing audits, they get copy-paste fixes.
+📌 **Example Output**  
+- “Privileged container detected → remove `securityContext.privileged: true`”  
+- Code snippets & config samples to fix issues  
+- Quick validation steps (e.g., `kubectl describe pod`)  
 
-🛡 Security Team (Control Testers / AppSec)
-✅ Focus: Deep technical security assessment
+🚀 **Value**: Developers don’t waste time parsing audits — they get **copy-paste fixes**.  
 
-📌 Example Output:
-Full misconfig explanation & attack path
-Probing questions to test controls (with positive/negative responses)
-Mapping to OWASP Kubernetes Top Ten + compliance frameworks
-Namespace/cluster impact analysis
+---
 
-🚀 Value: Security teams get detailed playbooks they can validate and share with engineers.
+### 🛡 Security Team (Control Testers / AppSec)  
+✅ **Focus**: Deep technical security assessment  
 
-📋 Risk Analyst (GRC / Compliance)
-✅ Focus: Audit-ready evidence
+📌 **Example Output**  
+- Full misconfig explanation & attack path  
+- Probing questions to test controls (with positive/negative responses)  
+- Mapping to OWASP Kubernetes Top Ten + compliance frameworks  
+- Namespace/cluster impact analysis  
 
-📌 Example Output:
-Risk synopsis with CVSS-like scoring
-Compliance mapping tables (PCI DSS, SOC 2, ISO 27001, NIST)
-Threat model context (attacker type, business impact)
-Residual risk & exception guidance
+🚀 **Value**: Security teams get **detailed playbooks** they can validate and share with engineers.  
 
-🚀 Value: Risk/Compliance teams can directly plug into audits without manual mapping.
+---
 
-🏛 Leadership (CISO / Executives / Board)
-✅ Focus: Business risk visibility
+### 📋 Risk Analyst (GRC / Compliance)  
+✅ **Focus**: Audit-ready evidence  
 
-📌 Example Output:
-5-sentence executive summary of risk posture
-3–5 key risk themes with plain-language impact (financial, reputational, compliance)
-Strategic recommendations (investments, policies, automation)
-Compliance alignment in one glance
+📌 **Example Output**  
+- Risk synopsis with CVSS-like scoring  
+- Compliance mapping tables (PCI DSS, SOC 2, ISO 27001, NIST)  
+- Threat model context (attacker type, business impact)  
+- Residual risk & exception guidance  
 
-🚀 Value: Executives get clarity, not noise — no YAML or CVEs, just business impact.
+🚀 **Value**: Risk/Compliance teams can **directly plug into audits** without manual mapping.  
 
-📊 Features
-🔎 Multi-tool scanning (Kubescape + Trivy)
-🎭 Persona-based reports (Dev, Sec, Risk, Leadership)
-🖥 Web UI (drag & drop manifests, tailored reports)
-📤 Export as PDF
-🧩 REST API endpoints 
-🔒 License system with remote validation
+---
 
-🌐 API Reference
-GET /health → health check
-POST /scan → upload manifests & persona, get report
-POST /api/save_key → save API key from frontend
-POST /api/validate_license → validate license JSON
+### 🏛 Leadership (CISO / Executives / Board)  
+✅ **Focus**: Business risk visibility  
 
+📌 **Example Output**  
+- 5-sentence executive summary of risk posture  
+- 3–5 key risk themes with plain-language impact (financial, reputational, compliance)  
+- Strategic recommendations (investments, policies, automation)  
+- Compliance alignment in one glance  
 
-📜 TL;DR License
-✅ Free for personal & educational use
-💼 Commercial use is prohibited
-🚫 No resale, relicensing, or reverse engineering
+🚀 **Value**: Executives get **clarity, not noise** — no YAML or CVEs, just **business impact**.  
 
-See license.txt for more details.
+---
+
+## 📊 Features
+- 🔎 Multi-tool scanning (Kubescape + Trivy)  
+- 🎭 Persona-based reports (Dev, Sec, Risk, Leadership)  
+- 🖥 Web UI (drag & drop manifests, tailored reports)  
+- 📤 Export as PDF  
+- 🧩 REST API endpoints  
+- 🔒 License system with remote validation  
+
+---
+
+## 🌐 API Reference
+- `GET /health` → health check  
+- `POST /scan` → upload manifests & persona, get report  
+- `POST /api/save_key` → save API key from frontend  
+- `POST /api/validate_license` → validate license JSON  
+
+---
+
+## 📜 TL;DR License
+- ✅ Free for personal & educational use  
+- 💼 Commercial use is **prohibited** without license  
+- 🚫 No resale, relicensing, or reverse engineering  
+
+See `license.txt` for more details.  
