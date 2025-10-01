@@ -149,7 +149,7 @@ Instead, it translates technical findings into **reports tailored to specific pe
 - Code snippets & config samples to fix issues  
 - Quick validation steps (e.g., `kubectl describe pod`)  
 
-🚀 **Value**: Developers don’t waste time parsing audits — they get **copy-paste fixes**.  
+🚀 **Value**: Developers don’t waste time parsing audits they get **copy-paste fixes**.  
 
 ---
 
