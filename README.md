@@ -93,7 +93,7 @@ docker run -it -p 5000:5000 rohitchaurasia/sapient-security:latest
 Now open 👉 http://localhost:5000
 
 
-🔑 Setting Your OpenAI API Key
+##🔑 Setting Your OpenAI API Key
 
 You have two options:
 
